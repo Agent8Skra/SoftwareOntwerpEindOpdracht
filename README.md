@@ -27,9 +27,9 @@ GET    http://localhost:5008/weerbericht
 ```
 
 ### Informeel klassendiagram
-──────────────────────────────────────────────────────────────
+
 [Facade]
-──────────────────────────────────────────────────────────────
+------------------------------------
 DomeinController : IDomeinController
 ├── + GeefSteden() : IEnumerable<StadDto>
 ├── + GeefWeerstations() : IEnumerable<WeerStationDto>
@@ -38,86 +38,87 @@ DomeinController : IDomeinController
 ├── + DoeMetingen()
 
 Gebruik:
-├── IStadManager
-│   └── StadManager
-│       └── StadRepository
-│           └── leest steden uit steden.json
+> IStadManager
+>>StadManager
+>>StadRepository
+>>>>leest steden uit steden.json
 
-├── IWeerstationManager
-│   └── WeerstationManager
-│       └── genereert 12 Weerstation instanties (types: Wind, Neerslag...)
+>IWeerstationManager
+>>WeerstationManager
+>>>genereert 12 Weerstation instanties (types: Wind, Neerslag...)
 
-├── IWeerberichtService
-│   └── WeerberichtProxy
-│       └── WeerberichtService
+>IWeerberichtService
+>>WeerberichtProxy
+>>>WeerberichtService
 
-├── IMetingLogger
-│   └── MetingLogger
-│       └── (optioneel) JsonLoggerDecorator
-│       └── (optioneel) XmlLoggerDecorator
+>IMetingLogger
+>>MetingLogger
+>>>JsonLoggerDecorator
+>>>>XmlLoggerDecorator
 
-──────────────────────────────────────────────────────────────
+
 [Core Domeinmodellen]
-──────────────────────────────────────────────────────────────
+------------------------------------
 Stad
-├── string Naam
-├── string Beschrijving
-├── string GekendVoor
+>string Naam
+>string Beschrijving
+>string GekendVoor
 
 Weerstation
-├── string Type
-├── Stad Locatie
-├── List<Meting> Metingen
-└── Meting DoeMeting()
+>string Type
+>Stad Locatie
+>List<Meting> Metingen
+>>Meting DoeMeting()
 
 Meting
-├── DateTime Moment
-├── double Waarde
-├── Eenheid Eenheid
-├── Stad Locatie
+>DateTime Moment
+>double Waarde
+>Eenheid Eenheid
+>Stad Locatie
 
 Enum Eenheid
-├── KilometerPerUur
-├── MillimeterPerVierkanteMeterPerUur
-├── GradenCelsius
-├── HectoPascal
+>KilometerPerUur
+>MillimeterPerVierkanteMeterPerUur
+>GradenCelsius
+>HectoPascal
 
 Weerbericht
-├── DateTime CreatedAt
-├── string Content
+>DateTime CreatedAt
+>string Content
 
-──────────────────────────────────────────────────────────────
+
 [Patronen]
-──────────────────────────────────────────────────────────────
+------------------------------------
+
 [Decorator]
-├── IMetingLogger
-│   ├── MetingLogger
-│   ├── JsonLoggerDecorator : IMetingLogger
-│   └── XmlLoggerDecorator : IMetingLogger
+>IMetingLogger
+>>MetingLogger
+>>JsonLoggerDecorator : IMetingLogger
+>>>XmlLoggerDecorator : IMetingLogger
 
 [Proxy]
-├── IWeerberichtService
-│   ├── WeerberichtService
-│   └── WeerberichtProxy (cache 1 min, lazy loading)
+>IWeerberichtService
+>WeerberichtService
+>>WeerberichtProxy (cache 1 min, lazy loading)
 
-──────────────────────────────────────────────────────────────
+
 [DTO's]
-──────────────────────────────────────────────────────────────
+------------------------------------
 StadDto
-├── string Naam
-├── string Beschrijving
-├── string GekendVoor
+>string Naam
+>string Beschrijving
+>string GekendVoor
 
 WeerStationDto
-├── string Type
-├── string StadNaam
+>string Type
+>string StadNaam
 
 MetingDto
-├── DateTime Moment
-├── double Waarde
-├── string Eenheid
-├── string StadNaam
+>DateTime Moment
+>double Waarde
+>string Eenheid
+>string StadNaam
 
 WeerBerichtDto
-├── DateTime Moment
-├── string Inhoud
+>DateTime Moment
+>string Inhoud
