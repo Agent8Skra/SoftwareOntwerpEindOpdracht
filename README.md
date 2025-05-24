@@ -1,3 +1,4 @@
+# Gemaakt door Kyllian Rasschaert
 # WeerEventsApi
 
 Simuleert en rapporteert weersomstandigheden in steden op basis van virtuele weerstations.
