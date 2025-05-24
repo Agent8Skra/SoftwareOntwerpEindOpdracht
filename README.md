@@ -17,7 +17,7 @@ Open "WeerStart.sln" in **Visual Studio 2022+** met .NET 9 SDK geïnstalleerd.
 ### Test
 Gebruik het bestand "ApiCalls.http" met de **REST Client extensie** in VS Code of test manueel via Postman:
 
-http
+```http
 GET    http://localhost:5008/
 GET    http://localhost:5008/steden
 GET    http://localhost:5008/weerstations
