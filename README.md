@@ -27,10 +27,15 @@ GET    http://localhost:5008/metingen
 GET    http://localhost:5008/weerbericht
 ```
 ### Known issues
-Façade: DomeinController bevat te veel afhankelijkheden
-- De DomeinController heeft 4 servicesen dit maakt het moeilijker testbaar.
-
+-Façade: DomeinController bevat te veel afhankelijkheden
+De DomeinController heeft 4 servicesen dit maakt het moeilijker testbaar.
+  
 Oplossing: Gebruik een service layer.
+
+-JsonLoggerDecorator logt geen correcte objectstructuur
+Momenteel logt de JsonLoggerDecorator een custom string als tekst, in plaats van een gestructureerd JSON-object.
+
+Oplossing: Maak de logger beter zodat hij objecten als JSON kan serialiseren
 
 ### Informeel klassendiagram
 
