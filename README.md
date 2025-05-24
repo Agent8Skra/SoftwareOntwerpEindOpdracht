@@ -25,6 +25,11 @@ POST   http://localhost:5008/commands/meting-command
 GET    http://localhost:5008/metingen
 GET    http://localhost:5008/weerbericht
 ```
+### Known issues
+Façade: DomeinController bevat te veel afhankelijkheden
+- De DomeinController heeft 4 servicesen dit maakt het moeilijker testbaar.
+
+Oplossing: Gebruik een service layer.
 
 ### Informeel klassendiagram
 
