@@ -1,0 +1,29 @@
+### GET
+GET http://localhost:5008/
+
+###
+
+### GET Weerstations
+GET http://localhost:5008/steden
+
+###
+
+### GET Weerstations
+GET http://localhost:5008/weerstations
+
+###
+
+### POST Laat alle weerstations een meting uitvoeren
+POST http://localhost:5008/commands/meting-command
+
+###
+
+### GET Weerbericht
+GET http://localhost:5008/weerbericht
+
+###
+
+### GET Metingen
+GET http://localhost:5008/metingen
+
+###
