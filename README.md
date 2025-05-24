@@ -31,11 +31,11 @@ GET    http://localhost:5008/weerbericht
 [Facade]
 ------------------------------------
 DomeinController : IDomeinController
-├── + GeefSteden() : IEnumerable<StadDto>
-├── + GeefWeerstations() : IEnumerable<WeerStationDto>
-├── + GeefMetingen() : IEnumerable<MetingDto>
-├── + GeefWeerbericht() : WeerBerichtDto
-├── + DoeMetingen()
+>+ GeefSteden() : IEnumerable<StadDto>
+>+ GeefWeerstations() : IEnumerable<WeerStationDto>
+>+ GeefMetingen() : IEnumerable<MetingDto>
+>+ GeefWeerbericht() : WeerBerichtDto
+>+ DoeMetingen()
 
 Gebruik:
 > IStadManager
